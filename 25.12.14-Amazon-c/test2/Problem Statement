@@ -1,0 +1,182 @@
+Problem Statement
+Implement a function to evaluate a postfix-notation equations and output the result of the evaluation. These equations are composed of integers and basic operators (addition [+], subtraction [-], multiplication [*], and division [/]). For example "1", "2", "+" would evaluate to 3, and "1", "2", "-" would evaluate to -1
+Background
+Postfix notation is a mathematical notation in which the operands precede the operator that applies to them. In this notation the order of operations for applying operators depends only one which comes first in the sequence. One of the advantages to postfix notation is that it can be evaluated in a single pass through the sequence. This works by starting at the beginning of the sequence and then every time you encounter an operator you apply it to the two values that preceded it.
+For example, if we look at the infix notation expression "7 * (3 + 6)" it could be written in postfix notation as "7 3 6 +". When evaluating the postfix expression you would find the first operand and apply it to the two values preceding it. Since the first operator in the postfix expression is a '+' we would apply it to the '3' and '6' to get a value of 9. The next operator in the sequence is '' and you would apply it to the value '7' and the result of the previous operations, which was '9'. This would give you a final answer of 63.
+Signature of function to implement
+FuncStatus_t evaluatePostfix(const size_t postfix_size, const char* postfix[], int32_t *result)
+Input Parameters
+size_t postfix_size: The number of strings in the array named "postfix";
+char* postfix[]: An array of strings representing the equation to evaluate. All strings in this array are null-terminated. Supported operators include addition (+), subtraction (-), multiplication (*), and division (/).
+Output Parameter
+int32_t *result: a reference to an integer representing the result of the evaluation of a postfix equation. This is updated only if the expression is evaluated successfully.
+Return
+FuncStatus_t: The status of evaluating the equation. See enum descriptions below.
+Provided Data Types
+typedef enum {
+STATUS_SUCCESS, /* All the input of the equation was able to be evaluated and 'result' is updated. /
+STATUS_INVALID, / Invalid equation provided or parameters, 'result' is not updated. /
+STATUS_DIVIDE_BY_ZERO, / Equation had a divide by zero occur, 'result' is not updated. */
+} FuncStatus_t;
+Examples
+Example 1:
+Inputs:
+postfix_size: 2
+postfix: {"3", "2"}
+Outputs:
+result: not updated
+Returns:
+STATUS_INVALID
+Example 2:
+Inputs:
+postfix_size: 2
+postfix: {"3", "+"}
+Outputs:
+result: not updated
+Returns:
+STATUS_INVALID
+Example 3:
+Inputs:
+postfix_size: 3
+postfix: {"4", "0", "/"}
+Outputs:
+result: not updated
+Returns:
+STATUS_DIVIDE_BY_ZERO
+Example 4:
+Inputs:
+postfix_size: 3, postfix: {"1", "20", "+"}
+Outputs:
+result: updated to 21
+Returns:
+STATUS_SUCCESS
+Example 5:
+Inputs:
+postfix_size: 5
+postfix: {"30", "4", "-", "15", "/"}
+Outputs:
+result: updated to 1
+Returns:
+STATUS_SUCCESS
+Explanation - "30", "4", "-", "15", "/" turns into (30 - 4) / 15. That's 26 / 15, which results in 1.
+
+# Chinese
+问题描述
+
+实现一个函数来计算后缀表达式，并输出计算结果。这些表达式由整数和基本运算符（加法 [+]、减法 [-]、乘法 [*] 和除法 [/]）组成。例如，“1”、“2”、“+” 的计算结果为 3，“1”、“2”、“-” 的计算结果为 -1。
+
+背景
+后缀表达式是一种数学表示法，其中操作数位于运算符之前。在这种表示法中，运算符的运算顺序仅取决于序列中哪个操作数最先出现。后缀表达式的优点之一是只需遍历序列一次即可完成计算。其工作原理是从序列的开头开始，然后每次遇到运算符时，将其应用于它前面的两个值。
+
+例如，如果我们看一下中缀表达式“7 * (3 + 6)”，它可以写成后缀表达式“7 3 6 +”。在计算后缀表达式时，首先找到第一个操作数，并将其应用于它前面的两个值。由于后缀表达式中的第一个运算符是“+”，因此将其应用于“3”和“6”，得到值“9”。序列中的下一个运算符是空字符串，将其应用于值“7”和之前运算的结果“9”。最终结果为 63。
+
+要实现的函数签名：
+
+FuncStatus_t evaluatePostfix(const size_t postfix_size, const char* postfix[], int32_t *result)
+
+输入参数：
+
+size_t postfix_size：名为“postfix”的数组中字符串的数量；
+
+char* postfix[]：表示要计算的等式的字符串数组。此数组中的所有字符串均以空字符结尾。支持的运算符包括加法 (+)、减法 (-)、乘法 (*) 和除法 (/)。
+
+输出参数
+
+int32_t *result：指向表示后缀表达式计算结果的整数的引用。仅当表达式计算成功时才会更新此值。
+
+返回值
+
+FuncStatus_t：表达式计算的状态。请参阅下面的枚举说明。
+
+提供的数据类型
+
+typedef enum {
+STATUS_SUCCESS, /* 表达式的所有输入都已计算，'result' 已更新。*/
+
+STATUS_INVALID, /* 提供的表达式或参数无效，'result' 不会更新。*/
+
+STATUS_DIVIDE_BY_ZERO, /* 表达式发生除以零的情况，'result' 不会更新。*/
+
+} FuncStatus_t;
+
+示例
+
+示例 1：
+
+输入：
+
+postfix_size: 2
+
+postfix: {"3", "2"}
+
+输出：
+
+result: not updated
+
+返回值：
+
+STATUS_INVALID
+
+示例 2：
+
+输入：
+
+postfix_size: 2
+
+postfix: {"3", "+"}
+
+输出：
+
+result: not updated
+
+返回值：
+
+STATUS_INVALID
+
+示例 3：
+
+输入：
+
+postfix_size: 3
+
+postfix: {"4", "0", "/"}
+
+输出：
+
+result: not updated
+
+返回值：
+
+STATUS_DIVIDE_BY_ZERO
+
+示例 4：
+
+输入：
+
+postfix_size: 3, postfix: {"1", "20", "+"}
+
+输出：
+
+result: updated to 21
+
+返回值：
+
+STATUS_SUCCESS
+
+示例5：
+
+输入：
+
+postfix_size：5
+
+postfix：{"30", "4", "-", "15", "/"}
+
+输出：
+
+result：更新为 1
+
+返回值：
+
+STATUS_SUCCESS
+
+解释 - "30", "4", "-", "15", "/" 转换为 (30 - 4) / 15。即 26 / 15，结果为 1。

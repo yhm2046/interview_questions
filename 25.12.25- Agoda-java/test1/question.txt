@@ -1,0 +1,81 @@
+# test1
+Job Execution
+You are given n jobs that run in parallel on a processor.
+Each job i has a required execution time executionTime[i].
+The processor runs in operation. In each operation:
+
+You choose one job as the major job.
+The major job runs for x seconds.
+Every other unfinished job runs for y seconds, where y < x.
+A job is considered complete once its total executed time reaches or exceeds its required execution time and it leaves the pool.
+
+You need to find the minimum number of operations needed for all jobs to complete.
+Example
+Suppose n = 5, executionTime = [3, 4, 1, 7, 6], x = 4, and y = 2.
+Output: 3
+Explanation:
+
+Choose job 4 as the major job:
+
+Reduce the execution time of job 4 by x and other jobs by y.
+executionTime becomes [1, 2, -1, 3, 4]
+Job 3 completes.
+
+
+Choose job 4 again: executionTime becomes [-1, 0, -1, -1, 2]. Jobs 1, 2, and 4 complete.
+Choose job 5: executionTime becomes [-, -, -, -, -2]. Job 5 completes.
+
+Constraints
+
+1 ≤ n ≤ 10⁸
+1 ≤ executionTime[i] ≤ 10⁹
+1 ≤ y < x ≤ 10⁹
+
+Chinese:
+# 测试1
+
+作业执行
+
+给定 n 个作业，它们在一个处理器上并行运行。
+
+每个作业 i 都有一个所需的执行时间 executionTime[i]。
+
+处理器以操作模式运行。在每个操作中：
+
+选择一个作业作为主作业。
+
+主作业运行 x 秒。
+
+其他所有未完成的作业运行 y 秒，其中 y < x。
+
+当一个作业的总执行时间达到或超过其所需的执行时间时，该作业被视为已完成，并从作业池中移除。
+
+你需要找到所有作业完成所需的最少操作次数。
+
+示例
+
+假设 n = 5，executionTime = [3, 4, 1, 7, 6]，x = 4，y = 2。
+
+输出：3
+
+解释：
+
+选择作业 4 作为主作业：
+
+将作业 4 的执行时间减少 x 秒，其他作业的执行时间减少 y 秒。
+
+执行时间变为 [1, 2, -1, 3, 4]
+
+作业 3 完成。
+
+再次选择作业 4：执行时间变为 [-1, 0, -1, -1, 2]。作业 1、2 和 4 完成。
+
+选择作业 5：执行时间变为 [-, -, -, -, -2]。作业 5 完成。
+
+约束条件
+
+1 ≤ n ≤ 10⁸
+
+1 ≤ executionTime[i] ≤ 10⁹
+
+1 ≤ y < x ≤ 10⁹

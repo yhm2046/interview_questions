@@ -1,0 +1,106 @@
+QUESTION DESCRIPTION
+
+Android (Kotlin): Deck Shuffler
+
+Create an app to display a grid of 6 cards, referred to as dealt cards, and a horizontally scrollable set of 8 cards, referred to as the deck, as shown below.
+
+Hide animation
+![dd30656c8cd1f25545e04b498c6ce0c9.png](:/dd20028cd80e4ce1928236f2abc0fb07)
+
+FUNCTIONALITY REQUIREMENTS
+
+The app should have the following functionalities:
+
+• Shuffle the dealt cards randomly when the SHUFFLE button is clicked.
+
+• Swap a dealt card with a card from the deck by tapping on the dealt and deck cards to swap.
+  Example: If the second dealt card is tapped and then the first deck card is tapped,
+  the second card from dealt cards must be swapped with the first card from the deck.
+  If a selected dealt card is tapped again, it must be deselected.
+
+• The project already has boilerplate code to create the required UI according to the
+  functionality specified. Connect the dots and code the missing pieces for the app
+  to work as described above.
+
+The classes needing code completion: MainActivity.kt, DeckAdapter.kt,
+and DealtCardsAdapter.kt, are open in the editor by default.
+
+Complete the code in the following methods and lines where comments are written:
+
+• setupListeners() [MainActivity.kt]:
+  Write code to shuffle the dealt cards and update the grid in the UI.
+
+• setupDealtCards() [MainActivity.kt]:
+  Write code to attach the adapter to the dealtCards GridView and update the selected
+  card in the dealtCards using the position provided by the OnItemClickListener callback.
+
+• setupDeck() [MainActivity.kt]:
+  Write code to attach the adapter to the deck RecyclerView.
+
+• swapDealtCardWithDeckCard(deckPosition: Int) [MainActivity.kt]:
+  Write code to swap the selected card in the dealtCards with the selected card from the deck.
+
+• bindImageAndSetListener(binding: DeckItemBinding, position: Int, drawableId: Int)
+  [DeckAdapter.kt]:
+  Write code to bind the image to the ViewHolder and invoke the itemTapListener
+  when any item is tapped.
+
+  #Chinese
+  问题描述
+
+Android（Kotlin）：洗牌器
+
+创建一个应用，显示一个包含 6 张牌的网格（称为“已发牌”）和一个可水平滚动的 8 张牌的牌组（称为“牌堆”），如下图所示。
+
+隐藏动画
+
+![dd30656c8cd1f25545e04b498c6ce0c9.png](:/dd20028cd80e4ce1928236f2abc0fb07)
+
+功能要求
+
+该应用应具备以下功能：
+
+• 点击“洗牌”按钮，随机洗乱已发牌。
+
+• 点击已发牌和牌堆中的牌，即可交换已发牌和牌堆中的牌。
+
+例如：如果点击第二张已发出的牌，然后再点击第一张牌，
+
+则必须将第二张已发出的牌与第一张牌交换位置。
+
+如果再次点击已选中的牌，则必须取消选中。
+
+• 该项目已包含用于根据指定功能创建所需 UI 的样板代码。
+
+请将这些代码连接起来，并编写缺失的部分，使应用程序
+
+能够按上述描述运行。
+
+需要代码补全的类：MainActivity.kt、DeckAdapter.kt
+
+和 DealtCardsAdapter.kt，默认情况下在编辑器中打开。
+
+请在以下方法和带有注释的行中完成代码：
+
+• setupListeners() [MainActivity.kt]：
+
+编写代码以洗牌并更新 UI 中的网格。
+
+• setupDealtCards() [MainActivity.kt]:
+
+编写代码将适配器附加到 dealtCards GridView，并使用 OnItemClickListener 回调提供的位置更新 dealtCards 中选中的牌。
+
+
+• setupDeck() [MainActivity.kt]:
+
+编写代码将适配器附加到 deck RecyclerView。
+
+• swapDealtCardWithDeckCard(deckPosition: Int) [MainActivity.kt]:
+
+编写代码将 dealtCards 中选中的牌与 deck 中选中的牌交换。
+
+• bindImageAndSetListener(binding: DeckItemBinding, position: Int, drawableId: Int)
+
+[DeckAdapter.kt]:
+
+编写代码将图像绑定到 ViewHolder，并在点击任何项目时调用 itemTapListener。

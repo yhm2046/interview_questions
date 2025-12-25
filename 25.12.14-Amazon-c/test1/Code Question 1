@@ -1,0 +1,136 @@
+Code Question 1
+There is a project consisting of n unique tasks. Each task is assigned to one individual team member. The tasks are ordered by priority from 1 to n and for simplicity, the ID of each team member is the same as the task's priority, for example, the team member working on the tasks with priority i will be referred to as i.
+Note that:
+
+All members always arrive in a fixed order each day.
+A team member always leaves before the next member in order arrives.
+A task assigned to a team member can only be started when all preceding tasks have been completed (either in the last days or on the same day but before this task).
+
+When a task is started by any team member it will be finished immediately and the next task can be started from that time.
+Find the minimum number of days required to complete the project, and if the project can't be completed the function must report an error.
+The project can't be completed if any of the team members working on some tasks are missing, or if a task is assigned to more than 1 team member.
+Function Signature
+FuncStatus_t
+schedule_tasks(int32_t arrive_order[],
+const uint32_t num_tasks,
+int32_t &days_needed)
+Input Parameters
+arrive_order: an array of integers representing the order in which each team member arrives each day.
+num_tasks: the size of the array arrive_order.
+Output Parameters
+days_needed: the minimum number of days needed to complete all tasks.
+Return
+Returns a status code indicating if there is an issue or not.
+Provided Data Types
+typedef enum
+{
+STATUS_GOOD, /* The project can be completed /
+STATUS_ISSUE, / The project can't be completed */
+} FuncStatus_t;
+Explanation:
+For the first day:
+
+The first team member working on the second task will arrive, but can't start on their task since the first task is not completed.
+The second team member working on the first task will arrive and finish their task (since no prior tasks are required).
+The third team member working on the third task will arrive, but can't start on their task since only one of the two prior tasks are completed.
+
+For the second day
+
+The first team member working on the second task will arrive and finish their task (since all prior tasks are completed).
+The second team member already finished their task.
+The third team member working on the third task will arrive and finish their task (since all prior tasks are completed).
+
+Example 2:
+Input:
+arrive_order: [2, 1, 2]
+num_tasks: 3
+Output: 0
+Return: STATUS_ISSUE
+Explanation:
+There are two team members assigned with the second task and no one is assigned with the third task so the project can't be completed.
+
+#Chinese
+代码题 1
+
+有一个项目包含 n 个不同的任务。每个任务分配给一个团队成员。任务按优先级从 1 到 n 排序。为简化起见，每个团队成员的 ID 与其任务的优先级相同，例如，负责优先级为 i 的任务的团队成员 ID 为 i。
+
+注意：
+
+所有成员每天都按固定顺序到达。
+
+一位团队成员总是在下一位成员到达之前离开。
+
+分配给团队成员的任务只有在所有前面的任务都完成后才能开始（要么在最近几天完成，要么在同一天但在该任务之前完成）。
+
+当任何团队成员开始一个任务时，该任务会立即完成，并且可以从该时间点开始下一个任务。
+
+求完成该项目所需的最少天数。如果项目无法完成，函数必须报告错误。
+
+如果负责某些任务的团队成员缺席，或者某个任务分配给了多个团队成员，则项目无法完成。
+
+函数签名
+
+FuncStatus_t
+
+schedule_tasks(int32_t arrive_order[],
+
+const uint32_t num_tasks,
+
+int32_t &days_needed)
+
+输入参数
+arrive_order：一个整数数组，表示每个团队成员每天到达的顺序。
+
+num_tasks：arrive_order 数组的大小。
+
+输出参数
+
+days_needed：完成所有任务所需的最少天数。
+
+返回值
+
+返回一个状态码，指示是否存在问题。
+
+提供的数据类型
+typedef enum
+
+{
+STATUS_GOOD, /* 项目可以完成 /
+
+STATUS_ISSUE, / 项目无法完成 */
+
+} FuncStatus_t;
+
+说明：
+
+第一天：
+
+负责第二个任务的第一位团队成员会到达，但由于第一个任务尚未完成，因此无法开始执行第二个任务。
+
+负责第一项任务的第二名团队成员将到达并完成任务（因为无需完成任何先前的任务）。
+
+负责第三项任务的第三名团队成员将到达，但由于之前两项任务中只有一项已完成，因此无法开始工作。
+
+第二天：
+
+负责第二项任务的第一名团队成员将到达并完成任务（因为所有先前的任务均已完成）。
+
+第二名团队成员已完成任务。
+
+负责第三项任务的第三名团队成员将到达并完成任务（因为所有先前的任务均已完成）。
+
+示例 2：
+
+输入：
+
+arrive_order: [2, 1, 2]
+
+num_tasks: 3
+
+输出：0
+
+返回值：STATUS_ISSUE
+
+说明：
+
+有两名团队成员被分配到第二项任务，但无人被分配到第三项任务，因此项目无法完成。
